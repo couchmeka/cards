@@ -1,23 +1,39 @@
-import logo from './logo.svg';
-import './App.css';
 
+import './App.css';
+import 'bootstrap/dist/css/bootstrap.css'
+import BasicExample from './Rows';
+import { useEffect, useState } from 'react';
+
+
+
+const DATA_URL = "https://rickandmortyapi.com/api/character"
 function App() {
+
+const [cardData, updateCards] = useState({})
+
+  useEffect(() => {
+
+    //asyncronously request data 
+    // wait for promise to resolve
+    // const moviesData = []
+    fetch(DATA_URL)
+    .then((result) => result.json())
+    .then((result) => {
+      updateCards(result.results)
+
+    });
+  
+    }, [])
+
+
+
+
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      
+      <BasicExample data = {cardData}/>
+      
     </div>
   );
 }
