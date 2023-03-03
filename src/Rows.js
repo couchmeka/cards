@@ -1,7 +1,8 @@
 
 import { Component, useState} from 'react';
-import { Container, Row, Card, Col, Tab,Tabs, Collapse, } from 'react-bootstrap';
+import { Container, Row, Card, Col, Tab,Tabs, Collapse, Tooltip, OverlayTrigger } from 'react-bootstrap';
 import ReactCardFlip from "react-card-flip";
+
 
 
 //rotation animation 
@@ -13,7 +14,11 @@ import ReactCardFlip from "react-card-flip";
 //page 1
 const RickDataCardFront = (props) => {
     const [flip, setFlip] = useState(false);
-
+    const renderTooltip = (props) => (
+        <Tooltip  {...props}>
+          Click for Stats
+        </Tooltip>
+      );
     console.log(props.data)
     const rickMorty = props.data.map((characters, index) => {
     
@@ -23,10 +28,33 @@ const RickDataCardFront = (props) => {
         return (
             
    <Col key = {index}>
+    <style type="text/css">
+        {`
+    
+    #enlarge:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 26px rgba(0,0,0,0.20);
+    transform: scale(1.1);
+}
+  
+   .card {
+    margin-bottom: 25px;
+    margin-top: 25px;
+   }
+  
+  
+  `}
+      </style>
     <ReactCardFlip isFlipped={flip} 
             flipDirection="horizontal">
-    <div className="react-card">
-    <Card style={{ width: '18rem' }} onClick={() => setFlip(!flip)} bg="warning">
+    <div className='react-card'>
+    <OverlayTrigger
+      placement="right"
+      delay={{ show: 250, hide: 400 }}
+      overlay={renderTooltip}
+    >
+    <Card id="enlarge" style={{ width: '18rem' }} onClick={() => setFlip(!flip)} bg="warning">
+    
       <Card.Img variant="top" src={characters.image} />
       <Card.Body>
         <Card.Title>{characters.name}</Card.Title>
@@ -38,9 +66,10 @@ const RickDataCardFront = (props) => {
         </Card.Text>
       </Card.Body>
     </Card>
+    </OverlayTrigger>
     </div>
     <div >
-          <div className='react-card'>
+          <div class='react-card'>
             <Card style={{ width: '18rem' }} onClick={() => setFlip(!flip)} bg="info">
             <Card.Img variant="top" src={characters.image} />
             <Card.Title>Stats</Card.Title>
@@ -58,7 +87,7 @@ const RickDataCardFront = (props) => {
 
     return (
         
-        <div>
+        <div >
             <Container className="card-grid">
                 <Row>
                     {rickMorty}
