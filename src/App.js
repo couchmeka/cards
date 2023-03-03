@@ -5,7 +5,6 @@ import BasicExample from './Rows';
 import { useEffect, useState } from 'react';
 
 
-
 const DATA_URL_RICK = "https://rickandmortyapi.com/api/character"
 
 const DATA_URL_MORTY = "https://rickandmortyapi.com/api/character/?page=2"
@@ -49,10 +48,18 @@ const [pageData, updatePage] = useState([])
 
 
 
+
+
+
+      
+
+
+
   return (
     <div className="App">
       
       <BasicExample data = {cardData} page = {pageData}/>
+
       
     </div>
   );
