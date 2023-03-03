@@ -41,7 +41,7 @@ const RickDataCardFront = (props) => {
     </div>
     <div >
           <div className='react-card'>
-            <Card style={{ width: '18rem' }} onClick={() => setFlip(!flip)} bg="danger">
+            <Card style={{ width: '18rem' }} onClick={() => setFlip(!flip)} bg="info">
             <Card.Img variant="top" src={characters.image} />
             <Card.Title>{characters.name}</Card.Title>
               Episodes {characters.episode.length}<br/>
