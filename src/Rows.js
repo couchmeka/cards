@@ -79,7 +79,7 @@ const RickData = (props) => {
         <div class='react-card'>
             <Card id="enlarge" style={{ width: '18rem' }} onClick={() => setFlip(!flip)} bg="info">
             <Card.Img variant="top" src={characters.image} />
-            <Card.Title>Stats</Card.Title>
+            <Card.Title>Stats - {characters.name}</Card.Title>
               Episodes {characters.episode.length}<br/>
               Location {characters.location.name}<br/>
               Location {characters.origin.name}
