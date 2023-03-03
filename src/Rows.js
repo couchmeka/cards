@@ -24,9 +24,9 @@ const RickDataCardFront = (props) => {
             
    <Col key = {index}>
     <ReactCardFlip isFlipped={flip} 
-            flipDirection="vertical">
+            flipDirection="horizontal">
     <div className="react-card">
-    <Card onClick={() => setFlip(!flip)}>
+    <Card style={{ width: '18rem' }} onClick={() => setFlip(!flip)}>
       <Card.Img variant="top" src={characters.image} />
       <Card.Body>
         <Card.Title>{characters.name}</Card.Title>
@@ -40,8 +40,8 @@ const RickDataCardFront = (props) => {
     </Card>
     </div>
     <div >
-          <div id="example-collapse-text">
-            <Card onClick={() => setFlip(!flip)}>
+          <div className='react-card'>
+            <Card style={{ width: '18rem' }} onClick={() => setFlip(!flip)}>
             <Card.Img variant="top" src={characters.image} />
             <Card.Title>{characters.name}</Card.Title>
               Episodes {characters.episode.length}<br/>
