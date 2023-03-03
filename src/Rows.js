@@ -26,7 +26,7 @@ const RickDataCardFront = (props) => {
     <ReactCardFlip isFlipped={flip} 
             flipDirection="horizontal">
     <div className="react-card">
-    <Card style={{ width: '18rem' }} onClick={() => setFlip(!flip)}>
+    <Card style={{ width: '18rem' }} onClick={() => setFlip(!flip)} bg="warning">
       <Card.Img variant="top" src={characters.image} />
       <Card.Body>
         <Card.Title>{characters.name}</Card.Title>
@@ -41,7 +41,7 @@ const RickDataCardFront = (props) => {
     </div>
     <div >
           <div className='react-card'>
-            <Card style={{ width: '18rem' }} onClick={() => setFlip(!flip)}>
+            <Card style={{ width: '18rem' }} onClick={() => setFlip(!flip)} bg="danger">
             <Card.Img variant="top" src={characters.image} />
             <Card.Title>{characters.name}</Card.Title>
               Episodes {characters.episode.length}<br/>
@@ -90,7 +90,7 @@ const MortyData = (props) => {
     <div className='react-card'>
     <Card onClick={() => setOpen(!open)}
         aria-controls="example-collapse-text"
-        aria-expanded={open} className="card" bg="info" style={{ width: '18rem' }}>
+        aria-expanded={open} className="card" bg="warning" style={{ width: '18rem' }}>
       <Card.Img variant="top" src={characters.image} />
       <Card.Body>
         <Card.Title>{characters.name}</Card.Title>
@@ -154,7 +154,7 @@ render() {
   return (
     <div>
   <Tabs
-        defaultActiveKey="profile"
+        defaultActiveKey="Page1"
         id="uncontrolled-tab-example"
         className="mb-3"
       >
