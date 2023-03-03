@@ -70,7 +70,7 @@ const RickDataCardFront = (props) => {
     </div>
     <div >
           <div class='react-card'>
-            <Card style={{ width: '18rem' }} onClick={() => setFlip(!flip)} bg="info">
+            <Card id="enlarge" style={{ width: '18rem' }} onClick={() => setFlip(!flip)} bg="info">
             <Card.Img variant="top" src={characters.image} />
             <Card.Title>Stats</Card.Title>
               Episodes {characters.episode.length}<br/>
@@ -116,8 +116,25 @@ const MortyData = (props) => {
         
         return (
    <Col key = {index}>
+     <style type="text/css">
+        {`
+    
+    #enlarge:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 26px rgba(0,0,0,0.20);
+    transform: scale(1.1);
+}
+  
+   .card {
+    margin-bottom: 25px;
+    margin-top: 25px;
+   }
+  
+  
+  `}
+      </style>
     <div className='react-card'>
-    <Card onClick={() => setOpen(!open)}
+    <Card id="enlarge" onClick={() => setOpen(!open)}
         aria-controls="example-collapse-text"
         aria-expanded={open} className="card" bg="warning" style={{ width: '18rem' }}>
       <Card.Img variant="top" src={characters.image} />
@@ -134,7 +151,7 @@ const MortyData = (props) => {
     <div style={{ minHeight: '150px', width: '10rem'  }}>
         <Collapse in={open} dimension="width">
           <div id="example-collapse-text">
-            <Card body style={{ width: '285px' }}>
+            <Card id="enlarge" body style={{ width: '285px' }}>
               Episodes {characters.episode.length}<br/>
               Location {characters.location.name}<br/>
               Location {characters.origin.name}
