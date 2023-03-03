@@ -1,6 +1,6 @@
 
 import { Component } from 'react';
-import { Container, Row, Col, Card } from 'react-bootstrap';
+import { Container, Row, Card, Col } from 'react-bootstrap';
 
 
 
@@ -10,33 +10,34 @@ const RickData = (props) => {
     const rickMorty = props.data.map((characters, index) => {
 
         console.log(characters)
+        
         return (
-<Col>
-    <Card style={{ width: '18rem' }}>
+   <Col key = {index}>
+    <Card bg="info" style={{ width: '18rem' }}>
       <Card.Img variant="top" src={characters.image} />
       <Card.Body>
         <Card.Title>{characters.name}</Card.Title>
         <Card.Text>
-          Some quick example text to build on the card title and make up the
-          bulk of the card's content.
+          Gender: {characters.gender} <br/>
+          Species: {characters.species} <br/>
+          Status: {characters.status}
         </Card.Text>
       </Card.Body>
     </Card>
 </Col>
         )
-    })
+    });
 
     return (
         
         <div>
-            <h1>Rick and Morty</h1>
             <Container>
                 <Row>
                     {rickMorty}
                 </Row>
             </Container>
-
-        </div>
+         </div>
+        
         
     )
 
@@ -50,7 +51,10 @@ render() {
     const {data} = this.props;
   return (
     <div>
+        <Card  className='card'>
+        <Card.Header><h1>Rick and Morty Characters</h1></Card.Header>
     <RickData data ={data}/>
+    </Card>
     </div>
   );
 }

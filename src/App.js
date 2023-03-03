@@ -9,7 +9,7 @@ import { useEffect, useState } from 'react';
 const DATA_URL = "https://rickandmortyapi.com/api/character"
 function App() {
 
-const [cardData, updateCards] = useState({})
+const [cardData, updateCards] = useState([])
 
   useEffect(() => {
 
