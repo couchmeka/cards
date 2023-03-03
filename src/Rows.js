@@ -1,7 +1,7 @@
 
 import { Component, useState} from 'react';
-import { Container, Row, Card, Col, Tab,Tabs, Collapse } from 'react-bootstrap';
-import "bootstrap/dist/css/bootstrap.min.css"
+import { Container, Row, Card, Col, Tab,Tabs, Collapse, } from 'react-bootstrap';
+import ReactCardFlip from "react-card-flip";
 
 
 //rotation animation 
@@ -12,7 +12,7 @@ import "bootstrap/dist/css/bootstrap.min.css"
  
 //page 1
 const RickDataCardFront = (props) => {
-    const [open, setOpen] = useState(false);
+    const [flip, setFlip] = useState(false);
 
     console.log(props.data)
     const rickMorty = props.data.map((characters, index) => {
@@ -21,11 +21,12 @@ const RickDataCardFront = (props) => {
         console.log(characters)
         
         return (
+            
    <Col key = {index}>
+    <ReactCardFlip isFlipped={flip} 
+            flipDirection="vertical">
     <div className="react-card">
-    <Card onClick={() => setOpen(!open)}
-        aria-controls="example-collapse-text"
-        aria-expanded={open} className="card" bg="info" style={{ width: '18rem' }}>
+    <Card onClick={() => setFlip(!flip)}>
       <Card.Img variant="top" src={characters.image} />
       <Card.Body>
         <Card.Title>{characters.name}</Card.Title>
@@ -38,17 +39,19 @@ const RickDataCardFront = (props) => {
       </Card.Body>
     </Card>
     </div>
-    <div style={{ minHeight: '150px', width: '10rem'  }}>
-        <Collapse in={open} dimension="width">
+    <div >
           <div id="example-collapse-text">
-            <Card body style={{ width: '285px' }}>
+            <Card onClick={() => setFlip(!flip)}>
+            <Card.Img variant="top" src={characters.image} />
+            <Card.Title>{characters.name}</Card.Title>
               Episodes {characters.episode.length}<br/>
               Location {characters.location.name}<br/>
               Location {characters.origin.name}
             </Card>
           </div>
-        </Collapse>
+        
       </div>
+      </ReactCardFlip>
 </Col>
         )
     });
