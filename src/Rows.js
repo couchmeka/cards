@@ -25,7 +25,7 @@ const RickDataCardFront = (props) => {
     <div className="react-card">
     <Card onClick={() => setOpen(!open)}
         aria-controls="example-collapse-text"
-        aria-expanded={open}className="card" bg="info" style={{ width: '18rem' }}>
+        aria-expanded={open} className="card" bg="info" style={{ width: '18rem' }}>
       <Card.Img variant="top" src={characters.image} />
       <Card.Body>
         <Card.Title>{characters.name}</Card.Title>
@@ -75,7 +75,7 @@ const RickDataCardFront = (props) => {
 //page 2
 const MortyData = (props) => {
 
-    
+    const [open, setOpen] = useState(false);
 
     console.log(props.page)
     const mortyRick = props.page.map((characters, index) => {
@@ -84,7 +84,10 @@ const MortyData = (props) => {
         
         return (
    <Col key = {index}>
-    <Card bg="info" style={{ width: '18rem' }}>
+    <div className='react-card'>
+    <Card onClick={() => setOpen(!open)}
+        aria-controls="example-collapse-text"
+        aria-expanded={open} className="card" bg="info" style={{ width: '18rem' }}>
       <Card.Img variant="top" src={characters.image} />
       <Card.Body>
         <Card.Title>{characters.name}</Card.Title>
@@ -95,6 +98,18 @@ const MortyData = (props) => {
         </Card.Text>
       </Card.Body>
     </Card>
+    </div>
+    <div style={{ minHeight: '150px', width: '10rem'  }}>
+        <Collapse in={open} dimension="width">
+          <div id="example-collapse-text">
+            <Card body style={{ width: '285px' }}>
+              Episodes {characters.episode.length}<br/>
+              Location {characters.location.name}<br/>
+              Location {characters.origin.name}
+            </Card>
+          </div>
+        </Collapse>
+      </div>
 </Col>
         )
     });
