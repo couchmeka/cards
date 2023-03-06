@@ -5,6 +5,7 @@ import ReactCardFlip from "react-card-flip";
 
 
 
+
 //rotation animation 
 
     
@@ -62,6 +63,7 @@ const RickData = (props) => {
     >
       {/*card  */}
     <Card id="enlarge" style={{ width: '18rem' }} onClick={() => setFlip(!flip)} bg="warning">
+    <Card.Header><h2>{characters.name}</h2> </Card.Header>
       <Card.Img variant="top" src={characters.image} />
       <Card.Body>
         <Card.Title>{characters.name}</Card.Title>
@@ -78,6 +80,7 @@ const RickData = (props) => {
     <div >
         <div class='react-card'>
             <Card id="enlarge" style={{ width: '18rem' }} onClick={() => setFlip(!flip)} bg="info">
+            <Card.Header><h2>{characters.name}</h2> </Card.Header>
             <Card.Img variant="top" src={characters.image} />
             <Card.Title>Stats - {characters.name}</Card.Title>
               Episodes {characters.episode.length}<br/>
@@ -131,12 +134,17 @@ const mortyRick = props.page.map((characters, index) => {
     transform: translateY(-10px);
     box-shadow: 0 20px 26px rgba(0,0,0,0.20);
     transform: scale(1.1);
+    
      }
   
    .card {
     margin-bottom: 25px;
     margin-top: 25px;
+    display: flex;
+    
      }
+  
+   
   
   
   `}
@@ -146,10 +154,11 @@ const mortyRick = props.page.map((characters, index) => {
 <Card id="enlarge" onClick={() => setOpen(!open)}
         aria-controls="example-collapse-text"
         aria-expanded={open} className="card" bg="warning" style={{ width: '18rem' }}>
+          <Card.Header><h2>{characters.name}</h2> </Card.Header>
       <Card.Img variant="top" src={characters.image} />
-      <Card.Body>
+      <Card.Body bg="light">
         <Card.Title>{characters.name}</Card.Title>
-        <Card.Text>
+        <Card.Text >
           Gender: {characters.gender} <br/>
           Species: {characters.species} <br/>
           Status: {characters.status}

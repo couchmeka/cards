@@ -1,6 +1,6 @@
 
 import 'bootstrap/dist/css/bootstrap.css'
-import BasicExample from './Rows';
+import BasicExample from './components/Rows';
 import { useEffect, useState } from 'react';
 
 
@@ -43,15 +43,7 @@ const [pageData, updatePage] = useState([])
     
       }, [])
 
-
-
-
-
-
-
-
       
-
 
 
   return (
