@@ -7,6 +7,13 @@ import {
 } from "react-bootstrap";
 import ReactCardFlip from "react-card-flip";
 
+
+
+
+
+
+
+
 const Flip = ({characters}) => {
   const [flip, setFlip] = useState(new Set());
 
@@ -95,4 +102,14 @@ const Flip = ({characters}) => {
   );
 };
 
-export default Flip
+
+
+
+
+
+
+
+
+
+
+export default Flip 
