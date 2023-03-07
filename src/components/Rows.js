@@ -1,13 +1,5 @@
 import { Component } from "react";
-import {
-  Container,
-  Row,
-  Card,
-  Tab,
-  Tabs,
-  
- 
-} from "react-bootstrap";
+import { Container, Row, Card, Tab, Tabs } from "react-bootstrap";
 import Flip from "./Flip";
 import Collapsed from "./Collapse";
 
@@ -15,21 +7,18 @@ import Collapsed from "./Collapse";
 
 //page 1
 const RickData = (props) => {
-
   return (
     <div>
       <Container>
-        <Row>{props.data.map((characters) => {
-
-          return <Flip characters = {characters}/>
-        })}</Row>
+        <Row>
+          {props.data.map((characters) => {
+            return <Flip characters={characters} />;
+          })}
+        </Row>
       </Container>
     </div>
   );
 };
-
-
-
 
 //page 2
 const MortyData = (props) => {
@@ -38,15 +27,17 @@ const MortyData = (props) => {
   return (
     <div>
       <Container>
-        <Row>{props.page.map((characters) => {
-
-          return <Collapsed characters = {characters}/>
-        })}</Row>
+        <Row>
+          {props.page.map((characters) => {
+            return <Collapsed characters={characters} />;
+          })}
+        </Row>
       </Container>
     </div>
   );
 };
 
+//component rendering
 class BasicExample extends Component {
   render() {
     const { data, page } = this.props;

@@ -1,21 +1,9 @@
 import { useState } from "react";
-import {
-  Card,
-  Col,
-  Tooltip,
-  OverlayTrigger,
-} from "react-bootstrap";
+import { Card, Col, Tooltip, OverlayTrigger } from "react-bootstrap";
 import ReactCardFlip from "react-card-flip";
 
-
-
-
-
-
-
-
-const Flip = ({characters}) => {
-  const [flip, setFlip] = useState(new Set());
+const Flip = ({ characters }) => {
+  const [flip, setFlip] = useState(false);
 
   //tooltip
   const renderTooltip = (props) => (
@@ -102,14 +90,4 @@ const Flip = ({characters}) => {
   );
 };
 
-
-
-
-
-
-
-
-
-
-
-export default Flip 
+export default Flip;
