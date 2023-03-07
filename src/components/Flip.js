@@ -13,7 +13,7 @@ const Flip = ({ characters }) => {
   console.log(characters);
 
   return (
-    <Col key={characters.image}>
+    <Col key={characters.card}>
       {/* CSS Styling */}
       <style type="text/css">
         {`

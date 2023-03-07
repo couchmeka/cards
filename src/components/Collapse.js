@@ -25,7 +25,7 @@ const Collapsed = ({characters}) =>{
 
 
     return (
-      <Col key={characters.image}>
+      <Col key={characters.card}>
         {/* CSS styling */}
         <style type="text/css">
           {`
